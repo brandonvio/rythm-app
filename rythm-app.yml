@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rythm-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rythm-app
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: rythm-app
+        version: v1
+    spec:
+      containers:
+        - image: matrixacr.azurecr.io/rythm-app:v1
+          imagePullPolicy: Always
+          name: rythm-app
+          resources: {}
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: rythm-app
+  name: rythm-app
+spec:
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 80
+  selector:
+    app: rythm-app
+  sessionAffinity: None
+  type: LoadBalancer
