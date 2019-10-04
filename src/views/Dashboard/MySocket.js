@@ -5,28 +5,54 @@ class MySocket extends Component {
   constructor() {
     super();
     this.state = {
-      data: false,
+      data: [],
       endpoint: "http://127.0.0.1:4000"
     };
+    this.prices = {};
   }
 
   componentDidMount() {
     const { endpoint } = this.state;
     const socket = socketIOClient(endpoint);
-    socket.on("FromAPI", data => this.setState({ response: data }));
+    socket.on("prices", data => {
+      const price = JSON.parse(data);
+      const prices = Object.assign({}, this.state.data);
+      prices[price.instrument] = [price.ask, price.bid];
+      this.setState({ data: prices });
+    });
+  }
+
+  getPriceList() {
+    return Object.entries(this.state.data).map((price, i) => {
+      const [key, value] = price;
+      return (
+        <tr key={key}>
+          <td>{key}</td>
+          <td>{value[0]}</td>
+          <td>{value[1]}</td>
+        </tr>
+      );
+    });
   }
 
   render() {
-    const { response } = this.state;
-    if (response) {
-      return (
-        <div>
-          <p>The temperature in Florence is: {response.temperature} °F</p>
-        </div>
-      );
-    } else {
-      return <div>Loading...</div>;
-    }
+    // const { price } = this.state;
+    // const prices = {};
+    // console.log(price.instrument);
+    // prices[price.instrument] = [price.ask, price.bid];
+    const instrumentsDiv = this.getPriceList();
+    return (
+      <table style={{ padding: "10px" }}>
+        <thead>
+          <tr>
+            <th>Instrument</th>
+            <th>Ask</th>
+            <th>Bid</th>
+          </tr>
+        </thead>
+        <tbody>{instrumentsDiv}</tbody>
+      </table>
+    );
   }
 }
 

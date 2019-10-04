@@ -7,6 +7,11 @@ class Dashboard extends Component {
   render() {
     return (
       <div className="animated fadeIn">
+        <Row>
+          <Col>
+            <MySocket />
+          </Col>
+        </Row>
         <Row style={{ marginBottom: "10px" }}>
           <Col>
             <div>
@@ -29,11 +34,6 @@ class Dashboard extends Component {
             <div>
               <TvChart />
             </div>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <MySocket />
           </Col>
         </Row>
       </div>
