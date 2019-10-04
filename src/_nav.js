@@ -20,6 +20,11 @@ export default {
       class: "" // optional class names space delimited list for title item ex: "text-center"
     },
     {
+      name: "Instruments",
+      url: "/instruments",
+      icon: "icon-drop"
+    },
+    {
       name: "Account",
       url: "/oanda/account",
       icon: "icon-drop"

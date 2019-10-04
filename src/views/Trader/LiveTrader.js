@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Button, Card, CardBody, CardHeader, Table } from "reactstrap";
 
 export default function LiveTrader() {
   const [traderStatus, setTraderStatus] = useState({ status: "NA" });
@@ -34,27 +35,37 @@ export default function LiveTrader() {
   console.log(traderStatus);
 
   return (
-    <div>
-      <h1>Trader</h1>
-      <div>
-        <div>Start Trader</div>
-        <div>
-          <button onClick={startTrader}>Start Trader</button>
-        </div>
-      </div>
-      <div>
-        <div>Get Status</div>
-        <div>
-          <button onClick={getTraderStatus}>Get Status</button>
-        </div>
-      </div>
-      <div>
-        <div>Trader Status</div>
-        <div>
-          <span>Status:{traderStatus.status}</span>
-          <span>Total Trades:{traderStatus.total_trades}</span>
-        </div>
-      </div>
-    </div>
+    <Card>
+      <CardHeader>
+        <i className="fa fa-align-justify"></i> Live Trader
+      </CardHeader>
+      <CardBody>
+        <Table hover bordered striped responsive size="sm">
+          <div>
+            <div>Start Trader</div>
+            <div>
+              <Button block color="primary" onClick={startTrader}>
+                Start Trader
+              </Button>
+            </div>
+          </div>
+          <div>
+            <div>Get Status</div>
+            <div>
+              <Button block color="primary" onClick={getTraderStatus}>
+                Get Status
+              </Button>
+            </div>
+          </div>
+          <div>
+            <div>Trader Status</div>
+            <div>
+              <span>Status:{traderStatus.status}</span>
+              <span>Total Trades:{traderStatus.total_trades}</span>
+            </div>
+          </div>
+        </Table>
+      </CardBody>
+    </Card>
   );
 }

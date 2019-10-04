@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import socketIOClient from "socket.io-client";
+import { Badge, Card, CardBody, CardHeader, Table } from "reactstrap";
 
-class MySocket extends Component {
+class Instruments extends Component {
   constructor() {
     super();
     this.state = {
@@ -28,32 +29,32 @@ class MySocket extends Component {
       return (
         <tr key={key}>
           <td>{key}</td>
-          <td>{value[0]}</td>
-          <td>{value[1]}</td>
+          <td align="right">{value[0]}</td>
+          <td align="right">{value[1]}</td>
+          <td>
+            <Badge color="success">Active</Badge>
+          </td>
         </tr>
       );
     });
   }
 
   render() {
-    // const { price } = this.state;
-    // const prices = {};
-    // console.log(price.instrument);
-    // prices[price.instrument] = [price.ask, price.bid];
     const instrumentsDiv = this.getPriceList();
     return (
-      <table style={{ padding: "10px" }}>
+      <Table hover bordered striped responsive size="sm">
         <thead>
           <tr>
             <th>Instrument</th>
-            <th>Ask</th>
-            <th>Bid</th>
+            <th align="right">Ask</th>
+            <th align="right">Bid</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>{instrumentsDiv}</tbody>
-      </table>
+      </Table>
     );
   }
 }
 
-export default MySocket;
+export default Instruments;

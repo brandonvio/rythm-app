@@ -1,17 +1,11 @@
 import React, { Component } from "react";
 import TvChart from "./TvChart";
-import MySocket from "./MySocket";
 import { Col, Row } from "reactstrap";
 
 class Dashboard extends Component {
   render() {
     return (
       <div className="animated fadeIn">
-        <Row>
-          <Col>
-            <MySocket />
-          </Col>
-        </Row>
         <Row style={{ marginBottom: "10px" }}>
           <Col>
             <div>
