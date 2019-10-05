@@ -6,23 +6,22 @@ class OandaAccount extends Component {
   constructor() {
     super();
     this.state = {
-      accountData: {}
+      account: {}
     };
   }
 
   componentDidMount() {
     (async () => {
-      const response = await axios.get("http://127.0.0.1:4000/api/account");
-      console.log(response);
+      const apiUrl = process.env.REACT_APP_API_URL;
+      const { data } = await axios.get(`${apiUrl}/api/account`);
       this.setState({
-        accountData: response.data
+        account: data
       });
     })();
   }
 
   render() {
-    const accountData = this.state.accountData;
-
+    const account = this.state.account;
     return (
       <div>
         <Row>
@@ -37,55 +36,55 @@ class OandaAccount extends Component {
                     <tr>
                       <td>alias</td>
                       <td>
-                        <strong>{accountData.alias}</strong>
+                        <strong>{account.alias}</strong>
                       </td>
                     </tr>
                     <tr>
                       <td>balance</td>
                       <td style={{ color: "yellow" }}>
-                        <strong>{accountData.balance}</strong>
+                        <strong>{account.balance}</strong>
                       </td>
                     </tr>
                     <tr>
                       <td>NAV</td>
-                      <td>{accountData.NAV}</td>
+                      <td>{account.NAV}</td>
                     </tr>
                     <tr>
                       <td>pl</td>
-                      <td>{accountData.pl}</td>
+                      <td>{account.pl}</td>
                     </tr>
                     <tr>
                       <td>financing</td>
-                      <td>{accountData.financing}</td>
+                      <td>{account.financing}</td>
                     </tr>
                     <tr>
                       <td>commission</td>
-                      <td>{accountData.commission}</td>
+                      <td>{account.commission}</td>
                     </tr>
                     <tr>
                       <td>guaranteedExecutionFees</td>
-                      <td>{accountData.guaranteedExecutionFees}</td>
+                      <td>{account.guaranteedExecutionFees}</td>
                     </tr>
                     <tr>
                       <td>commission</td>
-                      <td>{accountData.commission}</td>
+                      <td>{account.commission}</td>
                     </tr>
                     <tr>
                       <td>guaranteedStopLossOrderMode</td>
-                      <td>{accountData.guaranteedStopLossOrderMode}</td>
+                      <td>{account.guaranteedStopLossOrderMode}</td>
                     </tr>
                     <tr>
                       <td>hedgingEnabled</td>
-                      <td>{accountData.hedgingEnabled}</td>
+                      <td>{account.hedgingEnabled}</td>
                     </tr>
                     <tr>
                       <td>commission</td>
-                      <td>{accountData.commission}</td>
+                      <td>{account.commission}</td>
                     </tr>
 
                     <tr>
                       <td>withdrawalLimit</td>
-                      <td>{accountData.withdrawalLimit}</td>
+                      <td>{account.withdrawalLimit}</td>
                     </tr>
                   </tbody>
                 </Table>
@@ -102,43 +101,43 @@ class OandaAccount extends Component {
                   <tbody>
                     <tr>
                       <td>marginRate</td>
-                      <td>{accountData.marginRate}</td>
+                      <td>{account.marginRate}</td>
                     </tr>
                     <tr>
                       <td>marginUsed</td>
-                      <td>{accountData.marginUsed}</td>
+                      <td>{account.marginUsed}</td>
                     </tr>
                     <tr>
                       <td>marginAvailable</td>
-                      <td>{accountData.marginAvailable}</td>
+                      <td>{account.marginAvailable}</td>
                     </tr>
                     <tr>
                       <td>marginCloseoutUnrealizedPL</td>
-                      <td>{accountData.marginCloseoutUnrealizedPL}</td>
+                      <td>{account.marginCloseoutUnrealizedPL}</td>
                     </tr>
                     <tr>
                       <td>marginCloseoutNAV</td>
-                      <td>{accountData.marginCloseoutNAV}</td>
+                      <td>{account.marginCloseoutNAV}</td>
                     </tr>
                     <tr>
                       <td>marginCloseoutMarginUsed</td>
-                      <td>{accountData.marginCloseoutMarginUsed}</td>
+                      <td>{account.marginCloseoutMarginUsed}</td>
                     </tr>
                     <tr>
                       <td>marginCloseoutPercent</td>
-                      <td>{accountData.marginCloseoutPercent}</td>
+                      <td>{account.marginCloseoutPercent}</td>
                     </tr>
                     <tr>
                       <td>marginCloseoutPositionValue</td>
-                      <td>{accountData.marginCloseoutPositionValue}</td>
+                      <td>{account.marginCloseoutPositionValue}</td>
                     </tr>
                     <tr>
                       <td>marginCallMarginUsed</td>
-                      <td>{accountData.marginCallMarginUsed}</td>
+                      <td>{account.marginCallMarginUsed}</td>
                     </tr>
                     <tr>
                       <td>marginCallPercent</td>
-                      <td>{accountData.marginCallPercent}</td>
+                      <td>{account.marginCallPercent}</td>
                     </tr>
                   </tbody>
                 </Table>
@@ -155,31 +154,31 @@ class OandaAccount extends Component {
                   <tbody>
                     <tr>
                       <td>openTradeCount</td>
-                      <td>{accountData.openTradeCount}</td>
+                      <td>{account.openTradeCount}</td>
                     </tr>
                     <tr>
                       <td>openPositionCount</td>
-                      <td>{accountData.openPositionCount}</td>
+                      <td>{account.openPositionCount}</td>
                     </tr>
                     <tr>
                       <td>pendingOrderCount</td>
-                      <td>{accountData.pendingOrderCount}</td>
+                      <td>{account.pendingOrderCount}</td>
                     </tr>
                     <tr>
                       <td>unrealizedPL</td>
-                      <td>{accountData.unrealizedPL}</td>
+                      <td>{account.unrealizedPL}</td>
                     </tr>
                     <tr>
                       <td>positionValue</td>
-                      <td>{accountData.positionValue}</td>
+                      <td>{account.positionValue}</td>
                     </tr>
                     <tr>
                       <td>marginUsed</td>
-                      <td>{accountData.marginUsed}</td>
+                      <td>{account.marginUsed}</td>
                     </tr>
                     <tr>
                       <td>marginAvailable</td>
-                      <td>{accountData.marginAvailable}</td>
+                      <td>{account.marginAvailable}</td>
                     </tr>
                   </tbody>
                 </Table>
@@ -191,5 +190,4 @@ class OandaAccount extends Component {
     );
   }
 }
-
 export default OandaAccount;

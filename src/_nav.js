@@ -3,11 +3,7 @@ export default {
     {
       name: "Dashboard",
       url: "/dashboard",
-      icon: "icon-speedometer",
-      badge: {
-        variant: "info",
-        text: "NEW"
-      }
+      icon: "icon-speedometer"
     },
     {
       title: true,
@@ -22,7 +18,11 @@ export default {
     {
       name: "Instruments",
       url: "/instruments",
-      icon: "icon-drop"
+      icon: "icon-drop",
+      badge: {
+        variant: "info",
+        text: "NEW"
+      }
     },
     {
       name: "Account",

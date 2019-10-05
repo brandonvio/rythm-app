@@ -6,6 +6,7 @@ class Dashboard extends Component {
   render() {
     return (
       <div className="animated fadeIn">
+        <div>{process.env.API_HOST}</div>
         <Row style={{ marginBottom: "10px" }}>
           <Col>
             <div>
