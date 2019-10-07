@@ -16,13 +16,16 @@ class Instruments extends Component {
   componentDidMount() {
     const { endpoint } = this.state;
     const socket = socketIOClient(endpoint);
+
     socket.on("prices", data => {
       const price = JSON.parse(data);
-      const instruments = Object.assign({}, this.state.instruments);
+      const instruments = [...this.state.instruments];
       const instrumentIndex = instruments.findIndex(inst => inst.name === price.instrument);
-      instruments[instrumentIndex].ask = price.ask;
-      instruments[instrumentIndex].bid = price.bid;
-      this.setState({ data: instruments });
+      if (instrumentIndex >= 0) {
+        instruments[instrumentIndex].ask = price.ask;
+        instruments[instrumentIndex].bid = price.bid;
+        this.setState({ data: instruments });
+      }
     });
 
     (async () => {
