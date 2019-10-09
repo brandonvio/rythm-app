@@ -19,11 +19,15 @@ class Instruments extends Component {
 
     socket.on("prices", data => {
       const price = JSON.parse(data);
+      // console.log(price);
       const instruments = [...this.state.instruments];
-      const instrumentIndex = instruments.findIndex(inst => inst.name === price.instrument);
+      const instrumentIndex = instruments.findIndex(
+        inst => inst.name === price.instrument
+      );
       if (instrumentIndex >= 0) {
         instruments[instrumentIndex].ask = price.ask;
         instruments[instrumentIndex].bid = price.bid;
+        instruments[instrumentIndex].spread = price.spread;
         this.setState({ data: instruments });
       }
     });
@@ -43,7 +47,8 @@ class Instruments extends Component {
         <tr key={inst.name}>
           <td>{inst.displayName}</td>
           <td>{inst.type}</td>
-          <td>{inst.marginRate}</td>
+          <td align="right">{inst.marginRate}</td>
+          <td align="right">{inst.spread}</td>
           <td align="right">{inst.ask}</td>
           <td align="right">{inst.bid}</td>
           <td>
@@ -64,8 +69,9 @@ class Instruments extends Component {
               <th>Instrument</th>
               <th>Type</th>
               <th>Margin Rate</th>
-              <th align="right">Ask</th>
-              <th align="right">Bid</th>
+              <th>Spread</th>
+              <th>Ask</th>
+              <th>Bid</th>
               <th>Status</th>
             </tr>
           </thead>
