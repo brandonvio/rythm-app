@@ -12,11 +12,16 @@ class OandaAccount extends Component {
 
   componentDidMount() {
     (async () => {
-      const apiUrl = process.env.REACT_APP_API_URL;
-      const { data } = await axios.get(`${apiUrl}/api/account`);
-      this.setState({
-        account: data
-      });
+      try {
+        const accountUrl = `${process.env.REACT_APP_API_URL}/api/account`;
+        console.log(accountUrl);
+        const { data } = await axios.get(accountUrl);
+        this.setState({
+          account: data
+        });
+      } catch (err) {
+        console.log(err);
+      }
     })();
   }
 
