@@ -63,20 +63,23 @@ class Instruments extends Component {
     if (this.state.instruments) {
       const instrumentsDiv = this.getPriceList();
       return (
-        <Table hover bordered striped responsive size="sm">
-          <thead>
-            <tr>
-              <th>Instrument</th>
-              <th>Type</th>
-              <th>Margin Rate</th>
-              <th>Spread</th>
-              <th>Ask</th>
-              <th>Bid</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>{instrumentsDiv}</tbody>
-        </Table>
+        <>
+          <h5>More coming soon!</h5>
+          <Table hover bordered striped responsive size="sm">
+            <thead>
+              <tr>
+                <th>Instrument</th>
+                <th>Type</th>
+                <th>Margin Rate</th>
+                <th>Spread</th>
+                <th>Ask</th>
+                <th>Bid</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>{instrumentsDiv}</tbody>
+          </Table>
+        </>
       );
     } else {
       return <div>Loading...</div>;

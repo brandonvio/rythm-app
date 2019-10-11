@@ -43,17 +43,20 @@ class Instruments extends Component {
   render() {
     const instrumentsDiv = this.getPriceList();
     return (
-      <Table hover bordered striped responsive size="sm">
-        <thead>
-          <tr>
-            <th>Instrument</th>
-            <th align="right">Ask</th>
-            <th align="right">Bid</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>{instrumentsDiv}</tbody>
-      </Table>
+      <>
+        <h5>More coming soon!</h5>
+        <Table hover bordered striped responsive size="sm">
+          <thead>
+            <tr>
+              <th>Instrument</th>
+              <th align="right">Ask</th>
+              <th align="right">Bid</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>{instrumentsDiv}</tbody>
+        </Table>
+      </>
     );
   }
 }
