@@ -34,7 +34,7 @@ class Instruments extends Component {
 
     (async () => {
       const apiUrl = process.env.REACT_APP_API_URL;
-      const { data } = await axios.get(`${apiUrl}/api/instruments`);
+      const { data } = await axios.get(`${apiUrl}/api/instrumentr`);
       this.setState({
         instruments: data
       });
@@ -64,7 +64,6 @@ class Instruments extends Component {
       const instrumentsDiv = this.getPriceList();
       return (
         <>
-          <h5>More coming soon!</h5>
           <Table hover bordered striped responsive size="sm">
             <thead>
               <tr>
