@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Card, CardBody, CardHeader, Col, Row, Table } from "reactstrap";
+import numeral from "numeral";
 
 class OandaAccount extends Component {
   constructor() {
@@ -8,6 +9,7 @@ class OandaAccount extends Component {
     this.state = {
       account: {}
     };
+    numeral.defaultFormat("$0,0.00");
   }
 
   componentDidMount() {
@@ -39,40 +41,42 @@ class OandaAccount extends Component {
                 <Table responsive size="sm">
                   <tbody>
                     <tr>
-                      <td>alias</td>
-                      <td>
+                      <td style={{ width: "50%" }}> alias</td>
+                      <td style={{ width: "50%" }}>
                         <strong>{account.alias}</strong>
                       </td>
                     </tr>
                     <tr>
                       <td>balance</td>
                       <td style={{ color: "yellow" }}>
-                        <strong>{account.balance}</strong>
+                        <strong>{numeral(account.balance).format()}</strong>
                       </td>
                     </tr>
                     <tr>
                       <td>NAV</td>
-                      <td>{account.NAV}</td>
+                      <td>{numeral(account.NAV).format()}</td>
                     </tr>
                     <tr>
                       <td>pl</td>
-                      <td>{account.pl}</td>
+                      <td>{numeral(account.pl).format()}</td>
                     </tr>
                     <tr>
                       <td>financing</td>
-                      <td>{account.financing}</td>
+                      <td>{numeral(account.financing).format()}</td>
                     </tr>
                     <tr>
                       <td>commission</td>
-                      <td>{account.commission}</td>
+                      <td>{numeral(account.commission).format()}</td>
                     </tr>
                     <tr>
                       <td>guaranteedExecutionFees</td>
-                      <td>{account.guaranteedExecutionFees}</td>
+                      <td>
+                        {numeral(account.guaranteedExecutionFees).format()}
+                      </td>
                     </tr>
                     <tr>
                       <td>commission</td>
-                      <td>{account.commission}</td>
+                      <td>{numeral(account.commission).format()}</td>
                     </tr>
                     <tr>
                       <td>guaranteedStopLossOrderMode</td>
@@ -84,12 +88,12 @@ class OandaAccount extends Component {
                     </tr>
                     <tr>
                       <td>commission</td>
-                      <td>{account.commission}</td>
+                      <td>{numeral(account.commission).format()}</td>
                     </tr>
 
                     <tr>
                       <td>withdrawalLimit</td>
-                      <td>{account.withdrawalLimit}</td>
+                      <td>{numeral(account.withdrawalLimit).format()}</td>
                     </tr>
                   </tbody>
                 </Table>
@@ -105,44 +109,50 @@ class OandaAccount extends Component {
                 <Table responsive size="sm">
                   <tbody>
                     <tr>
-                      <td>marginRate</td>
-                      <td>{account.marginRate}</td>
+                      <td style={{ width: "50%" }}>marginRate</td>
+                      <td style={{ width: "50%" }}>{account.marginRate}</td>
                     </tr>
                     <tr>
                       <td>marginUsed</td>
-                      <td>{account.marginUsed}</td>
+                      <td>{numeral(account.marginUsed).format()}</td>
                     </tr>
                     <tr>
                       <td>marginAvailable</td>
-                      <td>{account.marginAvailable}</td>
+                      <td>{numeral(account.marginAvailable).format()}</td>
                     </tr>
                     <tr>
                       <td>marginCloseoutUnrealizedPL</td>
-                      <td>{account.marginCloseoutUnrealizedPL}</td>
+                      <td>
+                        {numeral(account.marginCloseoutUnrealizedPL).format()}
+                      </td>
                     </tr>
                     <tr>
                       <td>marginCloseoutNAV</td>
-                      <td>{account.marginCloseoutNAV}</td>
+                      <td>{numeral(account.marginCloseoutNAV).format()}</td>
                     </tr>
                     <tr>
                       <td>marginCloseoutMarginUsed</td>
-                      <td>{account.marginCloseoutMarginUsed}</td>
+                      <td>
+                        {numeral(account.marginCloseoutMarginUsed).format()}
+                      </td>
                     </tr>
                     <tr>
                       <td>marginCloseoutPercent</td>
-                      <td>{account.marginCloseoutPercent}</td>
+                      <td>{numeral(account.marginCloseoutPercent).format()}</td>
                     </tr>
                     <tr>
                       <td>marginCloseoutPositionValue</td>
-                      <td>{account.marginCloseoutPositionValue}</td>
+                      <td>
+                        {numeral(account.marginCloseoutPositionValue).format()}
+                      </td>
                     </tr>
                     <tr>
                       <td>marginCallMarginUsed</td>
-                      <td>{account.marginCallMarginUsed}</td>
+                      <td>{numeral(account.marginCallMarginUsed).format()}</td>
                     </tr>
                     <tr>
                       <td>marginCallPercent</td>
-                      <td>{account.marginCallPercent}</td>
+                      <td>{numeral(account.marginCallPercent).format()}</td>
                     </tr>
                   </tbody>
                 </Table>
@@ -158,8 +168,8 @@ class OandaAccount extends Component {
                 <Table responsive size="sm">
                   <tbody>
                     <tr>
-                      <td>openTradeCount</td>
-                      <td>{account.openTradeCount}</td>
+                      <td style={{ width: "50%" }}>openTradeCount</td>
+                      <td style={{ width: "50%" }}>{account.openTradeCount}</td>
                     </tr>
                     <tr>
                       <td>openPositionCount</td>
@@ -171,19 +181,19 @@ class OandaAccount extends Component {
                     </tr>
                     <tr>
                       <td>unrealizedPL</td>
-                      <td>{account.unrealizedPL}</td>
+                      <td>{numeral(account.unrealizedPL).format()}</td>
                     </tr>
                     <tr>
                       <td>positionValue</td>
-                      <td>{account.positionValue}</td>
+                      <td>{numeral(account.positionValue).format()}</td>
                     </tr>
                     <tr>
                       <td>marginUsed</td>
-                      <td>{account.marginUsed}</td>
+                      <td>{numeral(account.marginUsed).format()}</td>
                     </tr>
                     <tr>
                       <td>marginAvailable</td>
-                      <td>{account.marginAvailable}</td>
+                      <td>{numeral(account.marginAvailable).format()}</td>
                     </tr>
                   </tbody>
                 </Table>
