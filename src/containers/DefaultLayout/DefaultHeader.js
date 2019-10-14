@@ -1,12 +1,22 @@
 import React, { Component } from "react";
-import { DropdownItem, DropdownMenu, DropdownToggle, Nav, UncontrolledDropdown } from "reactstrap";
+import {
+  DropdownItem,
+  DropdownMenu,
+  DropdownToggle,
+  Nav,
+  UncontrolledDropdown
+} from "reactstrap";
 import PropTypes from "prop-types";
 
-import { AppAsideToggler, AppNavbarBrand, AppSidebarToggler } from "@coreui/react";
+import {
+  AppAsideToggler,
+  AppNavbarBrand,
+  AppSidebarToggler
+} from "@coreui/react";
 
 import logo from "../../assets/img/brand/bitcoin_rising.png";
 import sygnet from "../../assets/img/brand/sygnet.svg";
-import avatar from "../../assets/img/avatars/9.png";
+import avatar from "../../assets/img/avatars/0.jpeg";
 
 const propTypes = {
   children: PropTypes.node
@@ -30,7 +40,11 @@ class DefaultHeader extends Component {
         <Nav className="ml-auto" navbar>
           <UncontrolledDropdown nav direction="down">
             <DropdownToggle nav>
-              <img src={avatar} className="img-avatar" alt="admin@bootstrapmaster.com" />
+              <img
+                src={avatar}
+                className="img-avatar"
+                alt="admin@bootstrapmaster.com"
+              />
             </DropdownToggle>
             <DropdownMenu right style={{ height: "400px", right: 0 }}>
               <DropdownItem>AppHeaderDropdown</DropdownItem>
