@@ -14,10 +14,10 @@ node {
         echo "Get git rev-parse head."        
         git_head = sh(returnStdout: true, script: "git rev-parse HEAD").trim()
         echo "Build docker image."
-        sh "docker build -t matrixacr.azurecr.io/rythm-app:$git_head -f Dockerfile ."
+        sh "docker build -t matrixacr.azurecr.io/rythm-app:$env.BUILD_ID -f Dockerfile ."
         echo "Push new docker image to container repository."
-        sh "docker push matrixacr.azurecr.io/rythm-app:$git_head"
+        sh "docker push matrixacr.azurecr.io/rythm-app:$env.BUILD_ID"
         echo "Deploy to kubernetes cluster."
-        sh "/usr/local/bin/kubectl set image deployments/rythm-app rythm-app=matrixacr.azurecr.io/rythm-app:$git_head --kubeconfig /var/jenkins_home/secrets/azure-k8-config"
+        sh "/usr/local/bin/kubectl set image deployments/rythm-app rythm-app=matrixacr.azurecr.io/rythm-app:$env.BUILD_ID --kubeconfig /var/jenkins_home/secrets/azure-k8-config"
     }
 }
