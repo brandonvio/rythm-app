@@ -50,8 +50,13 @@ export default {
       class: "" // optional class names space delimited list for title item ex: "text-center"
     },
     {
-      name: "Symbols",
-      url: "/iexcloud/symbols",
+      name: "Stocks and ETFs",
+      url: "/iexcloud/stocksetf",
+      icon: "icon-puzzle"
+    },
+    {
+      name: "Crypto Currencies",
+      url: "/iexcloud/crypto",
       icon: "icon-puzzle"
     }
   ]

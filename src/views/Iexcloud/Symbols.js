@@ -6,8 +6,9 @@ import { BootstrapTable, TableHeaderColumn } from "react-bootstrap-table";
 import "react-bootstrap-table/dist//react-bootstrap-table-all.min.css";
 
 class Symbols extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    console.log(this.props.type);
     const apiUrl = process.env.REACT_APP_API_URL;
     this.state = {
       symbols: [],
@@ -28,7 +29,13 @@ class Symbols extends Component {
   componentDidMount() {
     (async () => {
       const apiUrl = process.env.REACT_APP_API_URL;
-      const { data } = await axios.get(`${apiUrl}/api/symbols`);
+      let url = "";
+      if (this.props.type === "CRYPTO") {
+        url = `${apiUrl}/api/iexcloud/crypto`;
+      } else {
+        url = `${apiUrl}/api/iexcloud/stocksetf`;
+      }
+      const { data } = await axios.get(url);
       this.setState({
         symbols: data
       });
@@ -91,6 +98,10 @@ class Symbols extends Component {
                 <TableHeaderColumn dataField="exchange" dataSort>
                   exchange
                 </TableHeaderColumn>
+                <TableHeaderColumn dataField="type" dataSort>
+                  type
+                </TableHeaderColumn>
+
                 <TableHeaderColumn dataField="region" dataSort>
                   region
                 </TableHeaderColumn>
