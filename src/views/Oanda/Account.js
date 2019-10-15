@@ -30,7 +30,7 @@ class OandaAccount extends Component {
   render() {
     const account = this.state.account;
     return (
-      <div>
+      <div className="animated fadeIn">
         <Row>
           <Col xs="12" lg="6">
             <Card>

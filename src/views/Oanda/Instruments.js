@@ -63,7 +63,7 @@ class Instruments extends Component {
     if (this.state.instruments) {
       const instrumentsDiv = this.getPriceList();
       return (
-        <>
+        <div className="animated fadeIn">
           <Table hover bordered striped responsive size="sm">
             <thead>
               <tr>
@@ -78,7 +78,7 @@ class Instruments extends Component {
             </thead>
             <tbody>{instrumentsDiv}</tbody>
           </Table>
-        </>
+        </div>
       );
     } else {
       return <div>Loading...</div>;

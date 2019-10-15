@@ -38,6 +38,21 @@ export default {
       name: "Live Trader",
       url: "/trader/livetrader",
       icon: "icon-puzzle"
+    },
+    {
+      title: true,
+      name: "iexcloud",
+      wrapper: {
+        // optional wrapper object
+        element: "", // required valid HTML5 element tag
+        attributes: {} // optional valid JS object with JS API naming ex: { className: "my-class", style: { fontFamily: "Verdana" }, id: "my-id"}
+      },
+      class: "" // optional class names space delimited list for title item ex: "text-center"
+    },
+    {
+      name: "Symbols",
+      url: "/iexcloud/symbols",
+      icon: "icon-puzzle"
     }
   ]
 };
