@@ -15,7 +15,7 @@ const routes = [
   { path: "/oanda/account", name: "Oanda Account", component: OandaAccount },
   { path: "/trader/backtrader", name: "Back Trader", component: BackTrader },
   { path: "/trader/livetrader", name: "Live Trader", component: LiveTrader },
-  { path: "/iexcloud/symbols", name: "iexcloud Symbols", component: Symbols }
+  { path: "/iexcloud/symbols", name: "IEX Cloud Symbols", component: Symbols }
 ];
 
 export default routes;

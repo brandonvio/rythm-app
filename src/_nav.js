@@ -41,7 +41,7 @@ export default {
     },
     {
       title: true,
-      name: "iexcloud",
+      name: "IEX Cloud",
       wrapper: {
         // optional wrapper object
         element: "", // required valid HTML5 element tag
