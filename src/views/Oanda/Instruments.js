@@ -45,7 +45,11 @@ class Instruments extends Component {
     return this.state.instruments.map((inst, i) => {
       return (
         <tr key={inst.name}>
-          <td>{inst.displayName}</td>
+          <td>
+            <a href={"#symbols/" + inst.name.replace("_", "")}>
+              {inst.displayName}
+            </a>
+          </td>
           <td>{inst.type}</td>
           <td align="right">{inst.marginRate}</td>
           <td align="right">{inst.spread}</td>
@@ -57,6 +61,10 @@ class Instruments extends Component {
         </tr>
       );
     });
+  }
+
+  LinkFormatter(value, row, index) {
+    return "<a href='#/symbols/" + row.symbol + "'>" + value + "</a>";
   }
 
   render() {

@@ -7,6 +7,7 @@ const LiveTrader = React.lazy(() => import("./views/Trader/LiveTrader"));
 const Instruments = React.lazy(() => import("./views/Oanda/Instruments"));
 const StocksETF = React.lazy(() => import("./views/Iexcloud/StocksETF"));
 const Crypto = React.lazy(() => import("./views/Iexcloud/Crypto"));
+const Symbols = React.lazy(() => import("./views/Symbols/Index"));
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
@@ -16,6 +17,7 @@ const routes = [
   { path: "/oanda/account", name: "Oanda Account", component: OandaAccount },
   { path: "/trader/backtrader", name: "Back Trader", component: BackTrader },
   { path: "/trader/livetrader", name: "Live Trader", component: LiveTrader },
+  { path: "/symbols/:id", name: "Instrument", component: Symbols },
   {
     path: "/iexcloud/stocksetf",
     name: "IEX Cloud - Stocks and ETFs",

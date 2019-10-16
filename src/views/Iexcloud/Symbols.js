@@ -61,6 +61,10 @@ class Symbols extends Component {
     });
   }
 
+  LinkFormatter(value, row, index) {
+    return "<a href='#/symbols/" + row.symbol + "'>" + value + "</a>";
+  }
+
   render() {
     if (this.state.symbols) {
       return (
@@ -89,7 +93,12 @@ class Symbols extends Component {
                 search
                 options={this.options}
               >
-                <TableHeaderColumn isKey dataField="symbol" dataSort>
+                <TableHeaderColumn
+                  isKey
+                  dataField="symbol"
+                  dataSort
+                  dataFormat={this.LinkFormatter.bind(this)}
+                >
                   symbol
                 </TableHeaderColumn>
                 <TableHeaderColumn dataField="name" dataSort>
