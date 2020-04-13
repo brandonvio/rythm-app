@@ -6,10 +6,11 @@ import { Badge, Table } from "reactstrap";
 class Instruments extends Component {
   constructor() {
     super();
-    const apiUrl = process.env.REACT_APP_API_URL;
+    // const apiUrl = process.env.REACT_APP_API_URL;
+    const apiUrl = "http://api.rythm.cc";
     this.state = {
       instruments: [],
-      endpoint: apiUrl
+      endpoint: apiUrl,
     };
   }
 
@@ -17,12 +18,12 @@ class Instruments extends Component {
     const { endpoint } = this.state;
     const socket = socketIOClient(endpoint);
 
-    socket.on("prices", data => {
+    socket.on("prices", (data) => {
       const price = JSON.parse(data);
       // console.log(price);
       const instruments = [...this.state.instruments];
       const instrumentIndex = instruments.findIndex(
-        inst => inst.name === price.instrument
+        (inst) => inst.name === price.instrument
       );
       if (instrumentIndex >= 0) {
         instruments[instrumentIndex].ask = price.ask;
@@ -33,10 +34,10 @@ class Instruments extends Component {
     });
 
     (async () => {
-      const apiUrl = process.env.REACT_APP_API_URL;
-      const { data } = await axios.get(`${apiUrl}/api/instrumentr`);
+      const apiUrl = this.state.endpoint;
+      const { data } = await axios.get(`${apiUrl}/api/currencies`);
       this.setState({
-        instruments: data
+        instruments: data,
       });
     })();
   }

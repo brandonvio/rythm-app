@@ -12,7 +12,7 @@ class Symbols extends Component {
     const apiUrl = process.env.REACT_APP_API_URL;
     this.state = {
       symbols: [],
-      endpoint: apiUrl
+      endpoint: apiUrl,
     };
 
     this.options = {
@@ -22,13 +22,15 @@ class Symbols extends Component {
       hidePageListOnlyOnePage: true,
       clearSearch: true,
       alwaysShowAllBtns: false,
-      withFirstAndLast: false
+      withFirstAndLast: false,
     };
   }
 
   componentDidMount() {
     (async () => {
-      const apiUrl = process.env.REACT_APP_API_URL;
+      // const apiUrl = process.env.REACT_APP_API_URL;
+      const apiUrl = "http://api.rythm.cc";
+
       let url = "";
       if (this.props.type === "CRYPTO") {
         url = `${apiUrl}/api/iexcloud/crypto`;
@@ -37,7 +39,7 @@ class Symbols extends Component {
       }
       const { data } = await axios.get(url);
       this.setState({
-        symbols: data
+        symbols: data,
       });
     })();
   }
