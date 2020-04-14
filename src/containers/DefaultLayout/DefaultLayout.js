@@ -12,7 +12,7 @@ import {
   AppSidebarForm,
   AppSidebarHeader,
   AppSidebarMinimizer,
-  AppSidebarNav
+  AppSidebarNav,
 } from "@coreui/react";
 // sidebar nav config
 import navigation from "../../_nav";
@@ -60,11 +60,11 @@ class DefaultLayout extends Component {
                         path={route.path}
                         exact={route.exact}
                         name={route.name}
-                        render={props => <route.component {...props} />}
+                        render={(props) => <route.component {...props} />}
                       />
                     ) : null;
                   })}
-                  <Redirect from="/" to="/dashboard" />
+                  <Redirect from="/" to="/currencies" />
                 </Switch>
               </Suspense>
             </Container>

@@ -13,7 +13,7 @@ const Symbols = React.lazy(() => import("./views/Symbols/Index"));
 const routes = [
   { path: "/", exact: true, name: "Home" },
   { path: "/dashboard", name: "Dashboard", component: Dashboard },
-  { path: "/instruments", name: "Instruments", component: Instruments },
+  { path: "/currencies", name: "Instruments", component: Instruments },
   { path: "/oanda/account", name: "Oanda Account", component: OandaAccount },
   { path: "/trader/backtrader", name: "Back Trader", component: BackTrader },
   { path: "/trader/livetrader", name: "Live Trader", component: LiveTrader },
@@ -21,13 +21,13 @@ const routes = [
   {
     path: "/iexcloud/stocksetf",
     name: "IEX Cloud - Stocks and ETFs",
-    component: StocksETF
+    component: StocksETF,
   },
   {
     path: "/iexcloud/crypto",
     name: "IEX Cloud - Crypto Currencies",
-    component: Crypto
-  }
+    component: Crypto,
+  },
 ];
 
 export default routes;

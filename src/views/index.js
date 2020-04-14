@@ -1,4 +1,3 @@
-import Dashboard from './Dashboard';
+import Instruments from "./Oanda/Instruments";
 
-export { Dashboard };
-
+export { Instruments };
