@@ -13,7 +13,7 @@ const Symbols = React.lazy(() => import("./views/Symbols/Index"));
 const routes = [
   { path: "/", exact: true, name: "Home" },
   { path: "/dashboard", name: "Dashboard", component: Dashboard },
-  { path: "/currencies", name: "Instruments", component: Instruments },
+  { path: "/currencies", name: "Currencies", component: Instruments },
   { path: "/oanda/account", name: "Oanda Account", component: OandaAccount },
   { path: "/trader/backtrader", name: "Back Trader", component: BackTrader },
   { path: "/trader/livetrader", name: "Live Trader", component: LiveTrader },
